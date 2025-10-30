@@ -15,6 +15,39 @@ class StorePage extends Page {
     get inventoryHeader () {
         return $('span.title');
     }
+
+    get productImgs () {
+        return $('img.inventory_item_img');
+    }
+
+    get backpackProductImg () {
+        return $('img.inventory_item_img[alt="Sauce Labs Backpack"]');
+    }
+
+    get backpackPrice () {
+        return $('.inventory_item_price:has(+ #add-to-cart-sauce-labs-backpack)');
+    }
+
+    get backpackAddToCart () {
+        return $('#add-to-cart-sauce-labs-backpack');
+    }
+
+    get backpackRemoveFromCart () {
+        return $('#remove-sauce-labs-backpack');
+    }
+
+    get hamburgerMenu () {
+        return $('#react-burger-menu-btn')
+    }
+
+    get resetAppStateBtn () {
+        return $('#reset_sidebar_link')
+    }
+
+    async resetAppState () {
+        await this.hamburgerMenu.click();
+        await this.resetAppStateBtn.click();
+    }
 }
 
 export default new StorePage();
